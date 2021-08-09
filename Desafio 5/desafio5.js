@@ -24,4 +24,3 @@ random = (min, max, decimals = 0) => {
     return decimals === 0 ? (Math.floor(Math.random() * (max - min) + min)) : ((Math.random() * (max - min) + min).toFixed(decimals))
 }
 
-console.log('prueba aleatorio 2 decimales: ' + (Math.random() * (100 - 10) + 10).toFixed(2))
