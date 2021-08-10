@@ -73,7 +73,7 @@ productos.crear()
         productos.guardar({ title: 'Bombilla Alpaca', price: 1500, pictureUrl: 'https://placekitten.com/g/200/300' }))
     .then(() =>
         productos.leer())
-    .finally(() =>
-        setTimeout(() => {
-            productos.borrar()
-        }, 3000))
+    // .finally(() =>
+    //     setTimeout(() => {
+    //         productos.borrar()
+    //     }, 3000))
