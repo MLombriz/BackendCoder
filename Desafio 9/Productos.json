@@ -1,0 +1,38 @@
+[
+	{
+		"title": "Termo Stanley",
+		"price": 3500,
+		"pictureUrl": "https://placekitten.com/g/200/300",
+		"id": 1
+	},
+	{
+		"title": "Mate Stanley",
+		"price": 950,
+		"pictureUrl": "https://placekitten.com/g/200/300",
+		"id": 2
+	},
+	{
+		"title": "Bombilla Alpaca",
+		"price": 1500,
+		"pictureUrl": "https://placekitten.com/g/200/300",
+		"id": 3
+	},
+	{
+		"title": "Sticker Stanley",
+		"price": 500,
+		"pictureUrl": "https://placekitten.com/g/200/300",
+		"id": 4
+	},
+	{
+		"title": "Producto Creado",
+		"price": 3500,
+		"pictureUrl": "https://placekitten.com/g/200/300",
+		"id": 5
+	},
+	{
+		"title": "tituloActualizado2",
+		"price": "2100",
+		"pictureUrl": "fotoBuenaActualizada2",
+		"id": "6"
+	}
+]
