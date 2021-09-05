@@ -1,0 +1,30 @@
+{
+  "name": "desafio-13---websocket-2---chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ServerES6toJS5": "npx babel server.ej6.js -o server.js -w",
+    "ServerTStoJS5": "npx tsc server.ts -w",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "cli": "^1.0.1",
+    "express": "^4.17.1",
+    "socket.io": "^4.2.0",
+    "typescript": "^4.4.2"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+  }
+}
