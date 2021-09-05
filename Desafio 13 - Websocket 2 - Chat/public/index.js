@@ -29,9 +29,11 @@ function addProducto() {
 };
 
 function addMensaje() {
+    const fecha = new Date().toLocaleString('en-us', { timeZone: 'UTC' })
     let mensaje = {
         mail: document.getElementById('mail').value,
-        message: document.getElementById('message').value
+        message: document.getElementById('message').value,
+        date: fecha
     };
     socket.emit('new-message', mensaje);
     return false;
@@ -53,8 +55,8 @@ function render(data) {
     const html = data.map((elem, index) => {
         return (
             `<div id="${elem.id}" key="${index}">
-            <strong>${elem.mail}</strong>: 
-            <em> ${elem.message}</em> </div>`
+            <strong style="color: blue;">${elem.mail}</strong>: 
+            <em>(${elem.date}) <span style="font-style: italic; color: green;">${elem.message}<span></em> </div>`
         )
     }).join(' ')
     to_renderSMS.innerHTML = html
