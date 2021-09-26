@@ -1,0 +1,185 @@
+MongoDB Enterprise > use ecommerce
+switched to db ecommerce
+
+//AGREGO 10 DOCUMENTOS A LA COLECCION PRODUCTOS
+db.productos.insertOne(
+{ "date" : Date(),
+"name" : "Coffee",
+"description" : "Brasil coffee beans",
+"code" : 1,
+"picture" : "/coffe.png",
+"price" : 20,
+"stock" : 1,})
+
+db.productos.insertOne(
+{ "date" : Date(),
+"name" : "bread",
+"description" : "french bread",
+"code" : 2,
+"picture" : "/bread.png",
+"price" : 100,
+"stock" : 5,})
+
+db.productos.insertOne(
+{ "date" : Date(),
+"name" : "suggar",
+"description" : "packs suggar",
+"code" : 3,
+"picture" : "/somethingsweet.png",
+"price" : 150,
+"stock" : 10,})
+
+
+db.productos.insertOne(
+{ "date" : Date(),
+"name" : "milk",
+"description" : "fresh farm milk",
+"code" : 4,
+"picture" : "/glassOfMilk.png",
+"price" : 350,
+"stock" : 15,})
+
+
+db.productos.insertOne(
+{ "date" : Date(),
+"name" : "croissant",
+"description" : "home made croissant",
+"code" : 5,
+"picture" : "/croissant.png",
+"price" : 1280,
+"stock" : 50,})
+
+db.productos.insertOne(
+{ "date" : Date(),
+"name" : "cheescake",
+"description" : "strawberrys cheescake",
+"code" : 6,
+"picture" : "/cheescake.png",
+"price" : 2300,
+"stock" : 15,})
+
+db.productos.insertOne(
+{ "date" : Date(),
+"name" : "eggs",
+"description" : "bold of eggs",
+"code" : 7,
+"picture" : "/eggsFromAFarm.png",
+"price" : 2860,
+"stock" : 30,})
+
+db.productos.insertOne(
+{ "date" : Date(),
+"name" : "yogurt",
+"description" : "glass of greek yogurt",
+"code" : 8,
+"picture" : "/yogurt.png",
+"price" : 3346,
+"stock" : 30,})
+
+db.productos.insertOne(
+{ "date" : Date(),
+"name" : "te",
+"description" : "green te",
+"code" : 9,
+"picture" : "/te.png",
+"price" : 4769,
+"stock" : 20,})
+
+db.productos.insertOne(
+{ "date" : Date(),
+"name" : "matcha",
+"description" : "deshidrated green te",
+"code" : 10,
+"picture" : "/matcha.png",
+"price" : 4991,
+"stock" : 20,})
+
+//AGREGO 10 DOCUMENTOS A LA COLECCION MENSAJES
+db.mensajes.insertOne(
+{ "date" : Date(),
+"name" : "client",
+"message": "Hello"})
+
+db.mensajes.insertOne(
+{ "date" : Date(),
+"name" : "waiter",
+"message": "Hello, how can i help you?"})
+
+db.mensajes.insertOne(
+{ "date" : Date(),
+"name" : "client",
+"message": "i want to take a breakfast, do you have sandiwch?"})
+
+db.mensajes.insertOne(
+{ "date" : Date(),
+"name" : "waiter",
+"message": "unfortunately we dont, but we have croissant!"})
+
+db.mensajes.insertOne(
+{ "date" : Date(),
+"name" : "client",
+"message": "mmm... i think i dont like croissants"})
+
+
+db.mensajes.insertOne(
+{ "date" : Date(),
+"name" : "waiter",
+"message": "maybe a bowl of eggs with some bread?"})
+
+db.mensajes.insertOne(
+{ "date" : Date(),
+"name" : "client",
+"message": "that sounds good!"})
+
+db.mensajes.insertOne(
+{ "date" : Date(),
+"name" : "waiter",
+"message": "and what would you like to drink? we have the best coffee"})
+
+db.mensajes.insertOne(
+{ "date" : Date(),
+"name" : "client",
+"message": "i love coffe! please bring me one"})
+
+db.mensajes.insertOne(
+{ "date" : Date(),
+"name" : "waiter",
+"message": "ok! ill hurry up!"})
+
+//LISTAR TODO LOS DOCUMENTOS EN CADA COLECCION
+db.getCollection('mensajes').find({})
+db.getCollection('productos').find({})
+
+//MOSTRAR LA CANTIDAD DE DOCUMENTOS ALMACENADOS EN CADA UNA DE ELLAS
+db.productos.count()
+db.mensajes.count()
+
+//AGREGO UN PRODUCTO MAS EN LA COLECCION PRODUCTOS
+db.productos.insertOne(
+{ "date" : Date(),
+"name" : "chocotorta",
+"description" : "best home made chocotorta",
+"code" : 11,
+"picture" : "/chocotorta.png",
+"price" : 410,
+"stock" : 1,})
+//LISTO PRODUCTOS CON PRECIO MENOR A 1000
+db.getCollection('productos').find({price: {$lt : 1000}})
+
+//LISTO PRODUCTOS CON PRECIO ENTRE 1000 A 3000
+db.getCollection('productos').find({price: {$gt:1000, $lt : 3000}})
+
+//LISTO PRODUCTOS CON PRECIO MAYOR A 3000
+db.getCollection('productos').find({price: {$gt:3000}})
+
+//CONSULTA QUE TRAER SOLO EL NOMBRE DEL TERCER PRODUCTO MAS BARATO
+ db.productos.find({"code":3},{"name":1, "_id":0})
+
+//ACTUALIZA EL STOCK DE TODOS LOS PRODUCTOS A VALOR 100
+db.productos.update({},{$set:{"stock":100}},{multi:true})
+
+//CAMBIA EL STOCK A 0 DE LOS PRODUCTOS CON PRECIOS MAYORES A 4000
+db.productos.update({"price" : {$gt : 4000}},{$set:{"stock":0}},{multi:true})
+
+//CREA USUARIO QUE SOLO PUEDE LEER LA BD
+db.createUser({ user: 'pepe', pwd: 'asd456', roles: [{ role: 'read', db: 'ecommerce'}] })
