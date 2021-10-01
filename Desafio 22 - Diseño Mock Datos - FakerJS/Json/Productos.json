@@ -1,0 +1,12 @@
+[
+    {
+        "title": "req.body.title",
+        "code": "req.body.code",
+        "description": "req.body.description",
+        "price": 1,
+        "pictureUrl": "req.body.pictureUrl",
+        "stock": 0,
+        "id": 1,
+        "timestamp": "Date.now()"
+    }
+]
