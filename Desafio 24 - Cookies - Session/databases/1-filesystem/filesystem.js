@@ -3,6 +3,7 @@ const { administrator } = require('../../constants/constants')
 const constants = require('../../constants/constants')
 const productFile = './Json/Productos.json'
 const messageFile = './Json/Mensajes.json'
+const path = require('path')
 // CRUD
 exports.listarProd = async (req, res) => {
     try {
@@ -185,7 +186,7 @@ exports.prodFiltrarStocks = async (req, res) => {
 // MENSAJES
 exports.addMessages = async (message) => {
     try {
-        fs.promises.readFile(__dirname + messageFile).then(data => data.toString('utf-8')).then(datos => {
+        fs.promises.readFile(path.join(__dirname, "Json", "Mensajes.json")).then(data => data.toString('utf-8')).then(datos => {
             const messages = JSON.parse(datos)
             messages.push({
                 ...message,
@@ -202,7 +203,7 @@ exports.addMessages = async (message) => {
 exports.getMessages = async () => {
     const normalize = require('../../normalization/handler').getNormalizedData
     const schema = require('../../normalization/schemas/messages')
-    const messages = await fs.promises.readFile(__dirname + messageFile).then((content) => {
+    const messages = await fs.promises.readFile(path.join(__dirname, "Json", "Mensajes.json")).then((content) => {
         let json = JSON.parse(content.toString("utf-8"));
         return json;
     })

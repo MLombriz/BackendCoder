@@ -1,13 +1,9 @@
 const express = require('express')
 const routerProductos = express.Router()
 const { dataBaseSelection } = require('../constants/constants')
-// const { auth } = require('../server')
-
-
-
-// routerProductos.get('/', auth, (req, res) => {
-//     res.sendFile(__path.resolve(__dirname + '/public/index.html'))
-// })
+const path = require('path')
+const { findUser } = require('../routes/login')
+const session = require('express-session')
 
 const factory = (db) => {
     switch (db) {
@@ -35,11 +31,49 @@ const factory = (db) => {
             break;
     }
 }
-
 // Selecciono Factory (Base de Datos a utilizar)
 const db = factory(dataBaseSelection)
 
+exports.userName
 
+routerProductos.get('/', (req, res) => {
+    const sessionAct = req.session
+    if (sessionAct.user) {
+        res.redirect('/home')
+    } else {
+        res.sendFile(path.resolve(path.join('public', 'login.html')))
+    }
+
+})
+routerProductos.get('/home', (req, res) => {
+    const sessionAct = req.session
+    const userAct = sessionAct.user
+    if (sessionAct.user) {
+        res.sendFile(path.resolve(path.join('public', 'index.html')))
+    } else {
+        res.redirect('/')
+    }
+})
+routerProductos.get('/password-invalid', (req, res) => {
+    res.json({ mensaje: 'Usuario INEXISTENTE, pruebe nuevamente en / ' })
+})
+
+routerProductos.post('/login', (req, res) => {
+    const { user } = req.body
+    userName = user
+    const sessionAct = req.session
+    sessionAct.user = user
+    findUser(user, req, res)
+})
+
+routerProductos.get('/logout', (req, res) => {
+    const sessionAct = req.session
+    const userAct = sessionAct.user
+    req.session.destroy(err => {
+        if (!err) res.send(`Logout Ok!!, Saludos ${userAct}`)
+        else res.send({ status: 'Logout ERROR', body: err })
+    })
+})
 // RUTAS PRODUCTOS
 // Lito TODOS los productos de la Base de Datos
 routerProductos.get('/listar', db.listarProd)
@@ -60,7 +94,7 @@ routerProductos.get('/stocks/:stock1/:stock2', db.prodFiltrarStocks);
 
 
 // // Cargo UN mensaje en la Base de Datos 
-// routerProductos.post('/mensajes/save', db.addMessage)
+routerProductos.post('/mensajes/save', db.addMessage)
 
 
-module.exports = routerProductos;
+module.exports = { routerProductos };

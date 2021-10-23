@@ -149,17 +149,16 @@ exports.prodFiltrarStocks = async (req, res) => {
 
 
 
+// MENSAJES
+const messageSchema = require('./schemas/messages')
 
-// // MENSAJES
-// const messageSchema = require('./schemas/messages')
-
-// exports.addMessage = async (req, res) => {
-//     const { mail, message } = req.body
-//     if (!mail || !message) {
-//         res.json({ message: "The message needs a mail and message" })
-//     } else {
-//         const newMessage = new messageSchema(req.body)
-//         await newMessage.save()
-//         res.json({ message: "Message Saved" })
-//     }
-// }
+exports.addMessage = async (req, res) => {
+    const { mail, message } = req.body
+    if (!mail || !message) {
+        res.json({ message: "The message needs a mail and message" })
+    } else {
+        const newMessage = new messageSchema(req.body)
+        await newMessage.save()
+        res.json({ message: "Message Saved" })
+    }
+}

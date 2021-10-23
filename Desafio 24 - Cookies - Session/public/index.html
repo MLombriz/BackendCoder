@@ -10,22 +10,15 @@
 </head>
 <body>
     <h1>Aplicativo</h1>
-    <div id="divLogin">
-        <h2>Formulario LogIn</h2>
-        <div class="row justify-content-center">
-            <div id="welcomeMessage"></div>
-            <form method="POST" action="/login">
-                <div id="inputUserName" class="mb-8">
-                    <label for="loginUser" class="form-label">Usuario
-                        <input class="form-control" id="loginUser" name="loginUser" type="text" required>
-                    </label>
-                </div>
-                <div class="text-left">
-                    <button id="loginBtn" type="button" class="btn btn-success">Login</button>
-                    <button id="logoutBtn" type='button' class="btn btn-warning">Logout</button>
-                </div>
-            </form>
+    <div class="alert alert-success" role="alert">
+        <div id="welcomeMessage">
+            <h4>BIENVENIDO</h4>
         </div>
+        <form method="get" action="/logout">
+            <div class="text-left">
+                <button type="submit" class="btn btn-warning">Logout</button>
+            </div>
+        </form>
     </div>
     <div class="container-fluid">
         <div class="row justify-content-center">

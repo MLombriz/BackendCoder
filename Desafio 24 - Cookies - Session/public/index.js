@@ -1,26 +1,19 @@
-const socket = io.connect()
+const constant = require('../constants/constants')
+const socket = io.connect(`http://localhost:${constant.PORT}`, { forceNew: true })
 const my_template = document.getElementById('template');
 const to_render = document.getElementById('to_render');
 const createBtn = document.getElementById('createBtn')
 const sendBtn = document.getElementById('sendBtn')
 const to_renderSMS = document.getElementById('to_renderSMS')
 const compression_percentage = document.getElementById('compression_percentage')
-const loginBtn = document.getElementById('loginBtn')
-const logoutBtn = document.getElementById('logoutBtn')
-
+const welcomeMessage = document.getElementById('welcomeMessage')
 const { schema, normalize, denormalize } = normalizr;
-
 const authorSchema = new schema.Entity("authors", {}, { idAttribute: "email" });
+const messageSchema = new schema.Entity("messages", { author: authorSchema, }, { idAttribute: "_id", });
 
-const messageSchema = new schema.Entity(
-    "messages",
-    {
-        author: authorSchema,
-    },
-    {
-        idAttribute: "_id",
-    }
-);
+const { userName } = require('../routes/ProductRouter')
+console.log('userName cargado:', userName)
+
 //SOCKET
 socket.on('productos', data => {
     const template = ejs.compile(my_template.innerHTML);
@@ -43,7 +36,6 @@ socket.on('messages', (data) => {
 })
 
 // FUNCIONES JS
-
 function addProducto() {
     let item = {
         title: document.getElementById('title').value,
@@ -114,17 +106,6 @@ sendBtn.addEventListener('click', () => {
     newMensaje()
     cleanInputsChat()
 })
-loginBtn.addEventListener('click', () => {
-    const userName = document.getElementById('loginUser').value
-    const Bienvenida = document.getElementById('welcomeMessage')
-    const inputUserDiv = document.getElementById('inputUserName')
-    Bienvenida.innerHTML = `<h2> BIENVENIDO <strong>${userName}</strong>, Gracias por visitar la pagina. Esperemos sea de tu agrado </h2>`
-    loginBtn.disabled = true
-    loginBtn.hidden = true
-    inputUserDiv.hidden = true
-    console.log('creando usuario')
-    socket.emit('userName', userName)
-})
 
 // Accion de eliminar producto
 to_render.addEventListener('click', (e) => {
@@ -134,13 +115,12 @@ to_render.addEventListener('click', (e) => {
         deleteProd(id)
     }
 })
-
+welcomeMessage.innerHTML = `<h4 class="alert-heading">Bienvenido</h4>`
 document.addEventListener("DOMContentLoaded", function () {
     let myBtn = document.getElementById("sendBtn");
     let myAlias = document.getElementById("user-alias");
-    let logoutButton = document.getElementById('logoutBtn')
-    myBtn.disabled = true;
 
+    myBtn.disabled = true;
     myAlias.onchange = function () {
         myAlias.value ? (myBtn.disabled = false) : (myBtn.disabled = true);
     };
