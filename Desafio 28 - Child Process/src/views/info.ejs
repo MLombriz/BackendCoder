@@ -1,0 +1,14 @@
+<%- layout('layouts/main.ejs') %>
+
+
+<h2>INFO</h2>
+<ul class="list-group">
+    <li class="list-group-item"><strong>Argumentos de Entrada:</strong> <%- req.params %> </li>
+    <li class="list-group-item"><strong>Path de Ejecucion: </strong><%= process.cwd() %></li>
+    <li class="list-group-item"><strong>Nombre de la plataforma: </strong><%= process.platform %></li>
+    <li class="list-group-item"><strong>Sistema Operativo: </strong> <%= process.platform %></li>
+    <li class="list-group-item"><strong>Version de Node.js: </strong> <%= process.version %></li>
+    <li class="list-group-item"><strong>Uso de Memoria: </strong> <%- process.memoryUsage() %></li>
+    <li class="list-group-item"><strong>Process id: </strong> <%= process.pid %></li>
+    <li class="list-group-item"><strong>Carpeta Corriente:  </strong><%= process.argv %></li>
+  </ul>
