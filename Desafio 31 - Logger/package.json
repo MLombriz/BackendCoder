@@ -1,0 +1,19 @@
+{
+  "name": "30-desafio-nginx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14",
+    "winston": "^3.3.3"
+  }
+}
