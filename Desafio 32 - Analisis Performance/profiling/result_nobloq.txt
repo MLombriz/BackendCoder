@@ -1,0 +1,46 @@
+Started phase 0, duration: 1s @ 22:00:14(-0300) 2021-11-09
+Report @ 22:00:24(-0300) 2021-11-09
+Elapsed time: 10 seconds
+  Scenarios launched:  10
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: 1.01
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 22:00:25(-0300) 2021-11-09
+Elapsed time: 11 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: NaN
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+  Errors:
+    ETIMEDOUT: 10
+
+All virtual users finished
+Summary report @ 22:00:25(-0300) 2021-11-09
+  Scenarios launched:  10
+  Scenarios completed: 0
+  Requests completed:  0
+  Mean response/sec: 0.91
+  Response time (msec):
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+  Scenario counts:
+    0: 10 (100%)
+  Errors:
+    ETIMEDOUT: 10
+

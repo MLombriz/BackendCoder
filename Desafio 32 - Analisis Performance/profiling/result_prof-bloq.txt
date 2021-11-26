@@ -1,0 +1,338 @@
+Statistical profiling result from isolate-0x102d93000-21178-v8.log, (53964 ticks, 6 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+      5    0.0%          /usr/lib/system/libsystem_platform.dylib
+      4    0.0%          /usr/lib/system/libsystem_pthread.dylib
+      4    0.0%          /usr/lib/system/libsystem_kernel.dylib
+      2    0.0%          /usr/lib/system/libsystem_malloc.dylib
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      6    0.0%    0.0%  RegExp: ; *([!#$%&'*+.^_`|~0-9A-Za-z-]+) *= *("(?:[\u000b\u0020\u0021\u0023-\u005b\u005d-\u007e\u0080-\u00ff]|\\[\u000b\u0020-\u00ff])*"|[!#$%&'*+.^_`|~0-9A-Za-z-]+) *
+      4    0.0%    0.0%  LazyCompile: *normalizeString path.js:52:25
+      1    0.0%    0.0%  RegExp: ;\s*charset\s*=
+      1    0.0%    0.0%  LazyCompile: *processTicksAndRejections internal/process/task_queues.js:69:35
+      1    0.0%    0.0%  LazyCompile: *fastparse /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/parseurl/index.js:95:20
+
+ [C++]:
+   ticks  total  nonlib   name
+  53029   98.3%   98.3%  T node::crypto::PBKDF2(v8::FunctionCallbackInfo<v8::Value> const&)
+    612    1.1%    1.1%  t __ZN2v88internalL52Builtin_Impl_Stats_V8BreakIteratorSupportedLocalesOfEiPmPNS0_7IsolateE
+     42    0.1%    0.1%  T void node::StreamBase::JSMethod<&(node::StreamBase::Writev(v8::FunctionCallbackInfo<v8::Value> const&))>(v8::FunctionCallbackInfo<v8::Value> const&)
+     34    0.1%    0.1%  T node::native_module::NativeModuleEnv::CompileFunction(v8::FunctionCallbackInfo<v8::Value> const&)
+     16    0.0%    0.0%  t node::fs::Read(v8::FunctionCallbackInfo<v8::Value> const&)
+     16    0.0%    0.0%  T __kernelrpc_thread_policy_set
+     12    0.0%    0.0%  t node::fs::InternalModuleReadJSON(v8::FunctionCallbackInfo<v8::Value> const&)
+     11    0.0%    0.0%  t node::fs::Stat(v8::FunctionCallbackInfo<v8::Value> const&)
+     11    0.0%    0.0%  T ___ulock_wait
+     10    0.0%    0.0%  T _vm_copy
+      9    0.0%    0.0%  t node::fs::InternalModuleStat(v8::FunctionCallbackInfo<v8::Value> const&)
+      8    0.0%    0.0%  T node::contextify::ContextifyContext::CompileFunction(v8::FunctionCallbackInfo<v8::Value> const&)
+      6    0.0%    0.0%  t void node::Buffer::(anonymous namespace)::StringWrite<(node::encoding)1>(v8::FunctionCallbackInfo<v8::Value> const&)
+      5    0.0%    0.0%  T node::fs::NewFSReqCallback(v8::FunctionCallbackInfo<v8::Value> const&)
+      5    0.0%    0.0%  T node::TTYWrap::New(v8::FunctionCallbackInfo<v8::Value> const&)
+      5    0.0%    0.0%  T _task_policy_set
+      5    0.0%    0.0%  T __kernelrpc_mach_vm_purgable_control_trap
+      4    0.0%    0.0%  t node::(anonymous namespace)::GetLibuvNow(v8::FunctionCallbackInfo<v8::Value> const&)
+      4    0.0%    0.0%  T node::crypto::Hash::New(v8::FunctionCallbackInfo<v8::Value> const&)
+      3    0.0%    0.0%  t non-virtual thunk to node::http2::Http2Stream::IsClosing()
+      3    0.0%    0.0%  t node::fs::LStat(v8::FunctionCallbackInfo<v8::Value> const&)
+      3    0.0%    0.0%  t _small_malloc_should_clear
+      3    0.0%    0.0%  t _free_small
+      3    0.0%    0.0%  T node::InternalCallbackScope::Close()
+      3    0.0%    0.0%  T __platform_strncmp
+      3    0.0%    0.0%  T ___bsdthread_create
+      2    0.0%    0.0%  t node::fs::Open(v8::FunctionCallbackInfo<v8::Value> const&)
+      2    0.0%    0.0%  t _tiny_malloc_should_clear
+      2    0.0%    0.0%  t _free_tiny
+      2    0.0%    0.0%  t __cxxabiv1::__function_type_info::~__function_type_info()
+      2    0.0%    0.0%  t ___vfprintf
+      2    0.0%    0.0%  t __ZN2v88internalL26Builtin_Impl_HandleApiCallENS0_16BuiltinArgumentsEPNS0_7IsolateE
+      2    0.0%    0.0%  t __ZN2v88internal19SequentialStringKeyIhE7IsMatchENS0_6StringE
+      2    0.0%    0.0%  t __ZN2v88internal12_GLOBAL__N_119HandleApiCallHelperILb0EEENS0_11MaybeHandleINS0_6ObjectEEEPNS0_7IsolateENS0_6HandleINS0_10HeapObjectEEESA_NS8_INS0_20FunctionTemplateInfoEEENS8_IS4_EENS0_16BuiltinArgumentsE
+      2    0.0%    0.0%  T node::binding::GetInternalBinding(v8::FunctionCallbackInfo<v8::Value> const&)
+      2    0.0%    0.0%  T node::InternalMakeCallback(node::Environment*, v8::Local<v8::Object>, v8::Local<v8::Object>, v8::Local<v8::Function>, int, v8::Local<v8::Value>*, node::async_context)
+      2    0.0%    0.0%  T _read$NOCANCEL
+      1    0.0%    0.0%  t unsigned long std::__1::__hash_table<node::CleanupHookCallback, node::CleanupHookCallback::Hash, node::CleanupHookCallback::Equal, std::__1::allocator<node::CleanupHookCallback> >::__erase_unique<node::CleanupHookCallback>(node::CleanupHookCallback const&)
+      1    0.0%    0.0%  t non-virtual thunk to node::http2::Http2Stream::HasWantsWrite() const
+      1    0.0%    0.0%  t node::Cwd(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  t node::Buffer::(anonymous namespace)::ByteLengthUtf8(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  t node::AsyncHooks::push_async_context(double, double, v8::Local<v8::Value>)
+      1    0.0%    0.0%  t node::(anonymous namespace)::Parser::Proxy<int (node::(anonymous namespace)::Parser::*)(), &(node::(anonymous namespace)::Parser::on_headers_complete())>::Raw(llhttp__internal_s*)
+      1    0.0%    0.0%  t dyld3::Loader::mapAndFixupAllImages(Diagnostics&, bool, bool)
+      1    0.0%    0.0%  t _tiny_malloc_from_free_list
+      1    0.0%    0.0%  t _tiny_free_no_lock
+      1    0.0%    0.0%  t _szone_realloc
+      1    0.0%    0.0%  t _nanov2_allocate
+      1    0.0%    0.0%  t __platform_memmove$VARIANT$Haswell
+      1    0.0%    0.0%  t ___printf_render_quote
+      1    0.0%    0.0%  t __ZN2v88internal25FunctionCallbackArguments4CallENS0_15CallHandlerInfoE
+      1    0.0%    0.0%  t __ZN2v88internal17PrototypeIterator7AdvanceEv
+      1    0.0%    0.0%  t __ZN2v88internal14LookupIterator17PropertyOrElementEPNS0_7IsolateENS0_6HandleINS0_6ObjectEEENS4_INS0_4NameEEENS4_INS0_10JSReceiverEEENS1_13ConfigurationE
+      1    0.0%    0.0%  t __ZN2v88internal12_GLOBAL__N_124ProbeInstantiationsCacheEPNS0_7IsolateENS0_6HandleINS0_13NativeContextEEEiNS1_11CachingModeE
+      1    0.0%    0.0%  t __ZN2v88internal12_GLOBAL__N_119HandleApiCallHelperILb1EEENS0_11MaybeHandleINS0_6ObjectEEEPNS0_7IsolateENS0_6HandleINS0_10HeapObjectEEESA_NS8_INS0_20FunctionTemplateInfoEEENS8_IS4_EENS0_16BuiltinArgumentsE
+      1    0.0%    0.0%  t __ZN2v812_GLOBAL__N_114CallDepthScopeILb1EEC1EPNS_8internal7IsolateENS_5LocalINS_7ContextEEE
+      1    0.0%    0.0%  T std::__1::locale::classic()
+      1    0.0%    0.0%  T std::__1::basic_istream<wchar_t, std::__1::char_traits<wchar_t> >::get()
+      1    0.0%    0.0%  T node::loader::ModuleWrap::Evaluate(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  T node::fs::Close(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  T node::crypto::TimingSafeEqual(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  T node::crypto::Hash::HashDigest(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  T node::NodePlatform::MonotonicallyIncreasingTime()
+      1    0.0%    0.0%  T node::NodePlatform::CallOnWorkerThread(std::__1::unique_ptr<v8::Task, std::__1::default_delete<v8::Task> >)
+      1    0.0%    0.0%  T _task_self_trap
+      1    0.0%    0.0%  T _realloc
+      1    0.0%    0.0%  T _malloc
+      1    0.0%    0.0%  T _mach_voucher_extract_attr_recipe
+      1    0.0%    0.0%  T _kdebug_typefilter
+      1    0.0%    0.0%  T __kernelrpc_mach_vm_protect_trap
+      1    0.0%    0.0%  T __ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE
+      1    0.0%    0.0%  T __ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE
+      1    0.0%    0.0%  T __ZN2v88internal9Accessors16ErrorStackGetterENS_5LocalINS_4NameEEERKNS_20PropertyCallbackInfoINS_5ValueEEE
+      1    0.0%    0.0%  T __ZN2v88internal21Builtin_HandleApiCallEiPmPNS0_7IsolateE
+      1    0.0%    0.0%  T __ZN2v88internal16DeclarationScope16DeclareParameterEPKNS0_12AstRawStringENS0_12VariableModeEbbPNS0_15AstValueFactoryEi
+      1    0.0%    0.0%  T __ZN2v88internal15AstValueFactory11InternalizeEPNS0_7IsolateE
+      1    0.0%    0.0%  T __ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi
+      1    0.0%    0.0%  T __ZN2v86Object3SetENS_5LocalINS_7ContextEEEjNS1_INS_5ValueEEE
+      1    0.0%    0.0%  T __ZN2v86Object3GetENS_5LocalINS_7ContextEEEj
+      1    0.0%    0.0%  T __ZN2v811HandleScopeD1Ev
+
+ [Summary]:
+   ticks  total  nonlib   name
+     13    0.0%    0.0%  JavaScript
+  53930   99.9%  100.0%  C++
+     41    0.1%    0.1%  GC
+     15    0.0%          Shared libraries
+      6    0.0%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+  53209   98.9%   98.6%  T __ZN2v88internal21Builtin_HandleApiCallEiPmPNS0_7IsolateE
+    596    1.1%    1.1%  t __ZN2v88internalL52Builtin_Impl_Stats_V8BreakIteratorSupportedLocalesOfEiPmPNS0_7IsolateE
+      2    0.0%    0.0%  T __ZN2v88internal32Builtin_GlobalDecodeURIComponentEiPmPNS0_7IsolateE
+      1    0.0%    0.0%  T __ZN2v88internal18Builtin_ArrayShiftEiPmPNS0_7IsolateE
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+  53029   98.3%  T node::crypto::PBKDF2(v8::FunctionCallbackInfo<v8::Value> const&)
+  53029  100.0%    T __ZN2v88internal21Builtin_HandleApiCallEiPmPNS0_7IsolateE
+  53029  100.0%      LazyCompile: ~pbkdf2Sync internal/crypto/pbkdf2.js:45:20
+  52978   99.9%        LazyCompile: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/server.js:32:23
+  52978  100.0%          LazyCompile: ~handle /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/layer.js:86:49
+  52978  100.0%            LazyCompile: ~next /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/route.js:114:16
+
+    612    1.1%  t __ZN2v88internalL52Builtin_Impl_Stats_V8BreakIteratorSupportedLocalesOfEiPmPNS0_7IsolateE
+    195   31.9%    t __ZN2v88internalL52Builtin_Impl_Stats_V8BreakIteratorSupportedLocalesOfEiPmPNS0_7IsolateE
+     14    7.2%      t __ZN2v88internalL52Builtin_Impl_Stats_V8BreakIteratorSupportedLocalesOfEiPmPNS0_7IsolateE
+      4   28.6%        LazyCompile: ~header /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:754:29
+      2   50.0%          LazyCompile: ~send /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:107:25
+      2  100.0%            LazyCompile: ~sendStatus /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:353:37
+      2   50.0%          LazyCompile: ~contentType /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:594:32
+      2  100.0%            LazyCompile: ~sendStatus /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:353:37
+      2   14.3%        LazyCompile: ~readPackage internal/modules/cjs/loader.js:245:21
+      2  100.0%          LazyCompile: ~readPackageScope internal/modules/cjs/loader.js:279:26
+      2  100.0%            LazyCompile: ~trySelf internal/modules/cjs/loader.js:396:17
+      2   14.3%        LazyCompile: ~parseQueryStringValues /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/qs/lib/parse.js:41:50
+      2  100.0%          LazyCompile: ~module.exports /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/qs/lib/parse.js:222:27
+      2  100.0%            LazyCompile: ~parseExtendedQueryString /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/utils.js:291:34
+      1    7.1%        LazyCompile: ~pipe /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/send/index.js:510:43
+      1  100.0%          LazyCompile: ~serveStatic /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/serve-static/index.js:72:31
+      1  100.0%            LazyCompile: ~handle /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/layer.js:86:49
+      1    7.1%        LazyCompile: ~expressInit /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/middleware/init.js:29:30
+      1  100.0%          LazyCompile: ~handle /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/layer.js:86:49
+      1  100.0%            LazyCompile: ~trim_prefix /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/index.js:288:23
+      1    7.1%        LazyCompile: ~checkInvalidHeaderChar _http_common.js:224:32
+      1  100.0%          LazyCompile: ~<anonymous> _http_outgoing.js:506:45
+      1  100.0%            LazyCompile: ~hidden internal/errors.js:282:25
+      1    7.1%        Eval: ~<anonymous> zlib.js:1:1
+      1  100.0%          LazyCompile: ~compileForInternalLoader internal/bootstrap/loaders.js:264:27
+      1  100.0%            LazyCompile: ~compileForPublicLoader internal/bootstrap/loaders.js:213:25
+      1    7.1%        Eval: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/route.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile internal/modules/cjs/loader.js:1092:37
+      1  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1147:37
+      1    7.1%        Eval: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/index.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile internal/modules/cjs/loader.js:1092:37
+      1  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1147:37
+     11    5.6%      LazyCompile: ~end _http_outgoing.js:726:45
+     11  100.0%        LazyCompile: ~send /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:107:25
+     11  100.0%          LazyCompile: ~sendStatus /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:353:37
+     11  100.0%            LazyCompile: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/server.js:32:23
+     10    5.1%      LazyCompile: ~sendStatus /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:353:37
+     10  100.0%        LazyCompile: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/server.js:32:23
+     10  100.0%          LazyCompile: ~handle /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/layer.js:86:49
+     10  100.0%            LazyCompile: ~next /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/route.js:114:16
+      9    4.6%      LazyCompile: ~send /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:107:25
+      9  100.0%        LazyCompile: ~sendStatus /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:353:37
+      8   88.9%          LazyCompile: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/server.js:32:23
+      8  100.0%            LazyCompile: ~handle /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/layer.js:86:49
+      1   11.1%          LazyCompile: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/server.js:14:21
+      1  100.0%            LazyCompile: ~handle /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/layer.js:86:49
+      8    4.1%      LazyCompile: ~writeHead _http_server.js:243:19
+      8  100.0%        LazyCompile: ~_implicitHeader _http_server.js:238:68
+      8  100.0%          LazyCompile: ~write_ _http_outgoing.js:627:16
+      8  100.0%            LazyCompile: ~end _http_outgoing.js:726:45
+      8    4.1%      LazyCompile: ~resOnFinish _http_server.js:676:21
+      8  100.0%        LazyCompile: ~onFinish _http_outgoing.js:721:18
+      8  100.0%          LazyCompile: ~onCorkedFinish _stream_writable.js:667:24
+      4   50.0%            LazyCompile: *processTicksAndRejections internal/process/task_queues.js:69:35
+      6    3.1%      LazyCompile: ~writevGeneric internal/stream_base_commons.js:116:23
+      6  100.0%        LazyCompile: ~Socket._writev net.js:792:36
+      6  100.0%          LazyCompile: ~clearBuffer _stream_writable.js:497:21
+      6  100.0%            LazyCompile: ~Writable.uncork _stream_writable.js:328:37
+      6    3.1%      LazyCompile: ~originalurl /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/parseurl/index.js:65:22
+      6  100.0%        LazyCompile: ~serveStatic /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/serve-static/index.js:72:31
+      6  100.0%          LazyCompile: ~handle /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/layer.js:86:49
+      6  100.0%            LazyCompile: ~trim_prefix /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/index.js:288:23
+      6    3.1%      LazyCompile: ~next /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/index.js:176:16
+      6  100.0%        LazyCompile: ~error /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/serve-static/index.js:115:39
+      6  100.0%          LazyCompile: ~error /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/send/index.js:267:45
+      6  100.0%            LazyCompile: ~onStatError /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/send/index.js:416:57
+      6    3.1%      LazyCompile: ~_storeHeader _http_outgoing.js:337:22
+      6  100.0%        LazyCompile: ~writeHead _http_server.js:243:19
+      6  100.0%          LazyCompile: ~_implicitHeader _http_server.js:238:68
+      6  100.0%            LazyCompile: ~write_ _http_outgoing.js:627:16
+      5    2.6%      LazyCompile: ~parse /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/content-type/index.js:106:16
+      5  100.0%        LazyCompile: ~setCharset /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/utils.js:250:41
+      5  100.0%          LazyCompile: ~send /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:107:25
+      5  100.0%            LazyCompile: ~sendStatus /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:353:37
+      5    2.6%      LazyCompile: ~getHeader _http_outgoing.js:531:57
+      5  100.0%        LazyCompile: ~res.get /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:788:19
+      4   80.0%          LazyCompile: ~send /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:107:25
+      4  100.0%            LazyCompile: ~sendStatus /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:353:37
+      1   20.0%          LazyCompile: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/request.js:467:36
+      1  100.0%            t __ZN2v88internalL52Builtin_Impl_Stats_V8BreakIteratorSupportedLocalesOfEiPmPNS0_7IsolateE
+      5    2.6%      LazyCompile: ~error /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/serve-static/index.js:115:39
+      5  100.0%        LazyCompile: ~error /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/send/index.js:267:45
+      5  100.0%          LazyCompile: ~onStatError /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/send/index.js:416:57
+      5  100.0%            LazyCompile: ~next /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/send/index.js:732:17
+      4    2.1%      LazyCompile: ~setHeader _http_outgoing.js:516:57
+      4  100.0%        LazyCompile: ~header /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:754:29
+      3   75.0%          LazyCompile: ~send /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:107:25
+      3  100.0%            LazyCompile: ~sendStatus /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:353:37
+      1   25.0%          LazyCompile: ~contentType /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:594:32
+      1  100.0%            LazyCompile: ~sendStatus /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:353:37
+      4    2.1%      LazyCompile: ~expressInit /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/middleware/init.js:29:30
+      4  100.0%        LazyCompile: ~handle /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/layer.js:86:49
+      4  100.0%          LazyCompile: ~trim_prefix /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/index.js:288:23
+      4  100.0%            LazyCompile: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/index.js:275:64
+      4    2.1%      LazyCompile: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/request.js:467:36
+      4  100.0%        t __ZN2v88internalL52Builtin_Impl_Stats_V8BreakIteratorSupportedLocalesOfEiPmPNS0_7IsolateE
+      4  100.0%          LazyCompile: ~send /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:107:25
+      4  100.0%            LazyCompile: ~sendStatus /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:353:37
+      3    1.5%      LazyCompile: ~write_ _http_outgoing.js:627:16
+      3  100.0%        LazyCompile: ~end _http_outgoing.js:726:45
+      3  100.0%          LazyCompile: ~send /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:107:25
+      3  100.0%            LazyCompile: ~sendStatus /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:353:37
+      3    1.5%      LazyCompile: ~parserOnMessageComplete _http_common.js:138:33
+      3    1.5%      LazyCompile: ~clearIncoming _http_server.js:660:23
+      3  100.0%        LazyCompile: ~resOnFinish _http_server.js:676:21
+      3  100.0%          LazyCompile: ~onFinish _http_outgoing.js:721:18
+      3  100.0%            LazyCompile: ~onCorkedFinish _stream_writable.js:667:24
+      3    1.5%      LazyCompile: ~_send _http_outgoing.js:282:49
+      3  100.0%        LazyCompile: ~write_ _http_outgoing.js:627:16
+      3  100.0%          LazyCompile: ~end _http_outgoing.js:726:45
+      3  100.0%            LazyCompile: ~send /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:107:25
+      3    1.5%      LazyCompile: ~_finish _http_outgoing.js:793:53
+      3  100.0%        LazyCompile: ~_finish _http_server.js:178:52
+      3  100.0%          LazyCompile: ~end _http_outgoing.js:726:45
+      3  100.0%            LazyCompile: ~send /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:107:25
+      3    1.5%      LazyCompile: ~_dump _http_incoming.js:283:49
+      3  100.0%        LazyCompile: ~resOnFinish _http_server.js:676:21
+      3  100.0%          LazyCompile: ~onFinish _http_outgoing.js:721:18
+      3  100.0%            LazyCompile: ~onCorkedFinish _stream_writable.js:667:24
+      3    1.5%      LazyCompile: ~Hash internal/crypto/hash.js:39:14
+      3  100.0%        LazyCompile: ~createHash crypto.js:110:20
+      3  100.0%          LazyCompile: ~entitytag /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/etag/index.js:39:20
+      3  100.0%            LazyCompile: ~etag /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/etag/index.js:70:15
+      3    1.5%      LazyCompile: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/server.js:32:23
+      3  100.0%        LazyCompile: ~handle /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/layer.js:86:49
+      3  100.0%          LazyCompile: ~next /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/route.js:114:16
+      3  100.0%            LazyCompile: ~dispatch /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/route.js:98:45
+      3    1.5%      LazyCompile: *next /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/index.js:176:16
+      3  100.0%        LazyCompile: ~error /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/serve-static/index.js:115:39
+      3  100.0%          LazyCompile: ~error /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/send/index.js:267:45
+      3  100.0%            LazyCompile: ~onStatError /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/send/index.js:416:57
+      2    1.0%      LazyCompile: ~resume_ _stream_readable.js:979:17
+      1   50.0%        LazyCompile: *processTicksAndRejections internal/process/task_queues.js:69:35
+      2    1.0%      LazyCompile: ~readPackage internal/modules/cjs/loader.js:245:21
+      2  100.0%        LazyCompile: ~readPackageExports internal/modules/cjs/loader.js:302:28
+      2  100.0%          LazyCompile: ~applyExports internal/modules/cjs/loader.js:441:22
+      2  100.0%            LazyCompile: ~resolveExports internal/modules/cjs/loader.js:498:24
+      2    1.0%      LazyCompile: ~parseurl /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/parseurl/index.js:35:19
+      1   50.0%        LazyCompile: ~serveStatic /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/serve-static/index.js:72:31
+      1  100.0%          LazyCompile: ~handle /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/layer.js:86:49
+      1  100.0%            LazyCompile: ~trim_prefix /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/index.js:288:23
+      1   50.0%        LazyCompile: ~getPathname /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/index.js:526:21
+      1  100.0%          LazyCompile: ~next /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/index.js:176:16
+      1  100.0%            LazyCompile: ~handle /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/index.js:136:31
+      2    1.0%      LazyCompile: ~emitReadable _stream_readable.js:541:22
+      2  100.0%        LazyCompile: ~onEofChunk _stream_readable.js:511:20
+      2  100.0%          LazyCompile: ~readableAddChunk _stream_readable.js:220:26
+      2  100.0%            LazyCompile: ~Readable.push _stream_readable.js:211:35
+      2    1.0%      LazyCompile: ~contentType /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:594:32
+      2  100.0%        LazyCompile: ~sendStatus /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:353:37
+      2  100.0%          LazyCompile: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/server.js:32:23
+      2  100.0%            LazyCompile: ~handle /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/layer.js:86:49
+      2    1.0%      LazyCompile: ~_writeRaw _http_outgoing.js:307:19
+      2  100.0%        LazyCompile: ~_send _http_outgoing.js:282:49
+      2  100.0%          LazyCompile: ~write_ _http_outgoing.js:627:16
+      2  100.0%            LazyCompile: ~end _http_outgoing.js:726:45
+      2    1.0%      LazyCompile: ~_implicitHeader _http_server.js:238:68
+      2  100.0%        LazyCompile: ~write_ _http_outgoing.js:627:16
+      2  100.0%          LazyCompile: ~end _http_outgoing.js:726:45
+      2  100.0%            LazyCompile: ~send /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:107:25
+      2    1.0%      LazyCompile: ~Module._extensions..json internal/modules/cjs/loader.js:1163:39
+      2  100.0%        LazyCompile: ~Module.load internal/modules/cjs/loader.js:974:33
+      2  100.0%          LazyCompile: ~Module._load internal/modules/cjs/loader.js:823:24
+      2  100.0%            LazyCompile: ~Module.require internal/modules/cjs/loader.js:1018:36
+      2    1.0%      LazyCompile: ~FastBuffer internal/buffer.js:945:1
+      1   50.0%        LazyCompile: ~fromStringFast buffer.js:423:24
+      1  100.0%          LazyCompile: ~fromString buffer.js:442:20
+      1  100.0%            LazyCompile: ~from buffer.js:304:28
+      1   50.0%        LazyCompile: ~alloc buffer.js:370:30
+      1  100.0%          LazyCompile: ~pbkdf2Sync internal/crypto/pbkdf2.js:45:20
+      1  100.0%            LazyCompile: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/server.js:32:23
+     17    2.8%    LazyCompile: ~writevGeneric internal/stream_base_commons.js:116:23
+     17  100.0%      LazyCompile: ~Socket._writev net.js:792:36
+     17  100.0%        LazyCompile: ~clearBuffer _stream_writable.js:497:21
+     17  100.0%          LazyCompile: ~Writable.uncork _stream_writable.js:328:37
+     17  100.0%            LazyCompile: ~end _http_outgoing.js:726:45
+     13    2.1%    LazyCompile: ~setHeader _http_outgoing.js:516:57
+     10   76.9%      LazyCompile: ~header /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:754:29
+      7   70.0%        LazyCompile: ~contentType /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:594:32
+      7  100.0%          LazyCompile: ~sendStatus /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:353:37
+      7  100.0%            LazyCompile: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/server.js:32:23
+      3   30.0%        LazyCompile: ~send /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:107:25
+      3  100.0%          LazyCompile: ~sendStatus /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/response.js:353:37
+      3  100.0%            LazyCompile: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/server.js:32:23
+      3   23.1%      LazyCompile: ~expressInit /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/middleware/init.js:29:30
+      3  100.0%        LazyCompile: ~handle /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/layer.js:86:49
+      3  100.0%          LazyCompile: ~trim_prefix /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/index.js:288:23
+      3  100.0%            LazyCompile: ~<anonymous> /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/index.js:275:64
+      8    1.3%    LazyCompile: ~_storeHeader _http_outgoing.js:337:22
+      8  100.0%      LazyCompile: ~writeHead _http_server.js:243:19
+      8  100.0%        LazyCompile: ~_implicitHeader _http_server.js:238:68
+      8  100.0%          LazyCompile: ~write_ _http_outgoing.js:627:16
+      8  100.0%            LazyCompile: ~end _http_outgoing.js:726:45
+      8    1.3%    LazyCompile: ~Readable.on _stream_readable.js:871:33
+      4   50.0%      LazyCompile: ~parserOnIncoming _http_server.js:721:26
+      4  100.0%        LazyCompile: ~parserOnHeadersComplete _http_common.js:74:33
+      3   37.5%      LazyCompile: ~clearIncoming _http_server.js:660:23
+      3  100.0%        LazyCompile: ~resOnFinish _http_server.js:676:21
+      3  100.0%          LazyCompile: ~onFinish _http_outgoing.js:721:18
+      3  100.0%            LazyCompile: ~onCorkedFinish _stream_writable.js:667:24
+      1   12.5%      LazyCompile: ~socketListenerWrap _http_server.js:839:37
+      1  100.0%        LazyCompile: ~assignSocket _http_server.js:212:62
+      1  100.0%          LazyCompile: ~parserOnIncoming _http_server.js:721:26
+      1  100.0%            LazyCompile: ~parserOnHeadersComplete _http_common.js:74:33
+      7    1.1%    LazyCompile: ~module.exports /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/qs/lib/parse.js:222:27
+      7  100.0%      LazyCompile: ~parseExtendedQueryString /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/utils.js:291:34
+      7  100.0%        LazyCompile: ~query /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/middleware/query.js:39:24
+      7  100.0%          LazyCompile: ~handle /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/layer.js:86:49
+      7  100.0%            LazyCompile: ~trim_prefix /Users/hcondori/Desktop/academia/backend_14730/camada14730/clase32/profiling/node_modules/express/lib/router/index.js:288:23
+
