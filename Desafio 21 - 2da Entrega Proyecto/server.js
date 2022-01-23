@@ -7,7 +7,7 @@ const express = require('express')
 const app = express()
 const server = require('http').Server(app)
 app.use('/productos', routerProductos)
-app.use('/carrito', routerCarrito)
+
 app.use(express.static('public'))
 
 
