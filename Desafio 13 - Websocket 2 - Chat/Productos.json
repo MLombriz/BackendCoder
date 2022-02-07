@@ -18,9 +18,9 @@
 		"id": 3
 	},
 	{
-		"title": "Sticker Stanley",
-		"price": 500,
-		"pictureUrl": "https://placekitten.com/g/200/300",
-		"id": 4
+		"title": "PRUEBA",
+		"price": "4",
+		"pictureUrl": "http://placekitten.com/g/200/300",
+		"id": 5
 	}
 ]

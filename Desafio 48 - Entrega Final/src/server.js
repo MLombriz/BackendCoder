@@ -1,38 +1,49 @@
+if (process.env.NODE_ENV !== "production") {
+    require("dotenv").config({ path: './.env' })
+}
+
 const express = require('express')
+const bodyParser = require('body-parser')
 const engine = require('ejs-mate')
 const path = require('path')
 const morgan = require('morgan')
-const { PORT, secret, numCPUs, modoForkOrCluster } = require('./keys')
+const cors = require('cors')
+const { PORT, MY_SECRET, numCPUs, modoForkOrCluster, MONGODB } = require('./keys')
+// const PORT = process.env.PORT || process.argv[2]
+// const secret = process.env.my_secret
+// const numCPUs = process.env.numCPUs
+// const modoForkOrCluster = process.env.modoForkOrCluster || process.argv[5]
+
 const passport = require('passport')
 const session = require('express-session')
 const flash = require('connect-flash')
 const { cluster } = require('cluster')
 const router = require('./routes/router')
-const dotenv = require('dotenv')
-
 // Initializations
 const app = express()
 const MongoStore = require('connect-mongo')
-require('./database') //Database
 
+require('./database') //Database
 require('./passport/local-auth') //Passport
 
 // Settings
 app.set('views', path.join(__dirname, 'views'))
 app.engine('ejs', engine)
 app.set('view engine', 'ejs')
-app.set('port', process.env.PORT || PORT)
+app.set('port', PORT)
 
 //Middlewares - Funciones que pasan antes de ir a una Ruta
-app.use(morgan('dev')) //Veo las solicitudes de un cliente en la consola
-app.use(express.urlencoded({ extended: false }))
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(morgan('dev'))
+app.use(cors());
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(session({
     store: MongoStore.create({
         mongoUrl: "mongodb+srv://mlabo:mlabo@cluster0.mmjbd.mongodb.net/session?retryWrites=true&w=majority",
         mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true }
     }),
-    secret: secret,
+    secret: MY_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -42,10 +53,10 @@ app.use(session({
     },
     rolling: true
 }))
+app.use(bodyParser.json())
 app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
-
 
 app.use((req, res, next) => {
     app.locals.signupMessage = req.flash('signupMessage')
@@ -54,12 +65,30 @@ app.use((req, res, next) => {
     next()
 })
 
-
 //Routes
 app.use('/', router)
 
+
+// WEBSOCKET
+const { createServer } = require('http')
+const { Server } = require('socket.io')
+const { saveMessage, readMessage } = require('./database')
+const httpServer = createServer(app)
+const io = new Server(httpServer, {})
+
+io.on("connection", async function (socket) {
+    console.log("Alguien se ha conectado con Sockets");
+    const msgs = await readMessage()
+    socket.emit("mensajes", msgs);
+    socket.on("new-mensaje", function (data) {
+        saveMessage(data);
+        msgs.push(data)
+        io.sockets.emit("mensajes", msgs);
+    });
+})
+
+
 // CLUSTER Module
-// modoForkOrCluster es una variable que creo para limitar el uso de cluster
 if (modoForkOrCluster === 'CLUSTER' && cluster.isMaster) {
     console.log(`Numero de CPUs: ${numCPUs}`)
     console.log(`PID Master ${process.pid} is running`)
@@ -78,18 +107,10 @@ if (modoForkOrCluster === 'CLUSTER' && cluster.isMaster) {
         cluster.fork();
     });
 } else {
+
     //Starting SERVER
-    app.listen(app.get('port'), err => {
+    httpServer.listen(app.get('port'), err => {
         if (err) throw new Error(`Error en el servidor ${err}`)
         console.log(`Servidor inicializado en PORT localhost:`, app.get('port'))
     })
 }
-
-// DOTENV
-dotenv.config()
-
-//PM2
-// --- MODO FORK ----
-// pm2 start app.js --name='ServerX' --watch -- PORT
-// --- MODO CLUSTER ----
-// pm2 start app.js --name='ServerX' --watch i max -- PORT

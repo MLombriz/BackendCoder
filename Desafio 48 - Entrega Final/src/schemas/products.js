@@ -6,7 +6,10 @@ const productSchema = new Schema({
         type: Date,
         default: Date.now
     },
-
+    category: {
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         required: true
@@ -17,11 +20,11 @@ const productSchema = new Schema({
     },
     code: {
         type: Number,
-        required: true,
+        required: false,
     },
     picture: {
         type: String,
-        required: true
+        required: false
     },
     price: {
         type: Number,
@@ -29,7 +32,8 @@ const productSchema = new Schema({
     },
     stock: {
         type: Number,
-        required: true
+        required: true,
+        default: 1
     },
     qty: {
         type: Number,
@@ -37,5 +41,6 @@ const productSchema = new Schema({
         default: 1
     }
 })
+
 
 module.exports = mongoose.model('products', productSchema)

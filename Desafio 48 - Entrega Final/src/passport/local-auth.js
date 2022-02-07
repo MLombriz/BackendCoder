@@ -1,12 +1,18 @@
+const dotenv = require('dotenv')
+dotenv.config()
+
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const FacebookStrategy = require('passport-facebook').Strategy
 const { facebook } = require('../keys')
+// const facebookID = process.env.facebook_id
+// const facebookSecret = process.env.facebook_secret
 const User = require('../schemas/user')
 const facebookUser = require('../schemas/facebookUser')
 const { TwilioCom } = require('../mailing/WhatsApp')
-
 const whatsApp = new TwilioCom
+
+const { addCart } = require('../database')
 
 passport.serializeUser((user, done) => {
     done(null, user)
@@ -51,6 +57,7 @@ passport.use('local-signup', new LocalStrategy({
         await newUser.save()
         whatsApp.enviarMsg('Se ha registrado el email:' + email)
         done(null, newUser)
+        addCart(email)
     }
 }))
 

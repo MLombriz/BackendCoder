@@ -1,15 +1,35 @@
+const dotenv = require('dotenv')
+dotenv.config()
+
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 const path = require('path')
 const { fork } = require('child_process')
-const { numCPUs } = require('../keys')
+const { numCPUs, wrongMsgRoute } = require('../keys')
 const { transporter, mailOptions, mailOptionsLogOut } = require("../mailing/nodemailer")
+
+const ProductRouter = require('./product.router')
+const productRouter = new ProductRouter
+const CartRouter = require('./cart.router')
+const cartRouter = new CartRouter
+const OrderRouter = require('./order.router')
+const orderRouter = new OrderRouter
+const MessageRouter = require('./message.router')
+const messageRouter = new MessageRouter
+
+router.use('/product', isAuthenticated, productRouter.start())
+router.use('/cart', isAuthenticated, cartRouter.start())
+router.use('/order', isAuthenticated, orderRouter.start())
+router.use('/chat', isAuthenticated, messageRouter.start())
+
+
 
 router.get('/', isAuthenticated, (req, res, next) => {
     res.render('index', {
         title: 'Ecommerce',
-        productsExist: false
+        productsExist: false,
+        // items: productRouter.getProducts()
     })
 })
 
@@ -95,7 +115,16 @@ router.get('/randoms', (req, res, next) => {
     })
 })
 
-
+// Wrong routes
+router.get("**", (req, res) => {
+    res.status(200).json(wrongMsgRoute)
+})
+router.post("**", (req, res) => {
+    res.status(200).json(wrongMsgRoute)
+})
+router.delete("**", (req, res) => {
+    res.status(200).json(wrongMsgRoute)
+})
 
 
 //FUNCTIONS

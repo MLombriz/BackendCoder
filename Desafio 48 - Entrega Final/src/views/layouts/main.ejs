@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%=title %></title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
-</head>
+    <!-- <script src="/socket.io/socket.io.js"></script>  
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="./main.ejs"></script>
+    <script src="../../public/main.js"></script> -->
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">Ecommerce</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,10 +20,19 @@
           <ul class="navbar-nav">
               <% if(user) {%> 
             <li class="nav-item active">
+              <a class="nav-link" href="/product">Product</a>
+            </li>
+            <li class="nav-item active">
               <a class="nav-link" href="/profile">Profile</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="/info">Info</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/chat">Chat</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/order">Order</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/logout"><button type="button" class="btn btn-sm btn-outline-light">LogOut</button></a>
@@ -56,5 +65,5 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.6/ejs.min.js"></script>
-</body>
+  </body>
 </html>
